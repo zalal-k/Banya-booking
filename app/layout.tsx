@@ -21,11 +21,11 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: "Kut Banya · Kyrgyz sauna",
+    default: "Kut Banya · Traditional Russian steam room",
     template: "%s · Kut Banya",
   },
   description:
-    "Kut Banya — Kyrgyz sauna in the forest. Book a wood-fired session online.",
+    "Kut Banya — traditional Russian steam room since 2018. Book a coal-fired session online.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
