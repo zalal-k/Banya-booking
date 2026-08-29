@@ -5,6 +5,8 @@ import Link from "next/link";
 import { PageBack } from "@/components/page-back";
 import { useAuth } from "@/components/auth-provider";
 import { useLanguage } from "@/components/language-provider";
+import { MbankPayPanel } from "@/components/mbank-pay-panel";
+import { formatSom } from "@/lib/pricing";
 import {
   cancelBooking,
   endTime,
@@ -110,9 +112,16 @@ export function HistoryPage() {
             <p className="mt-3 text-sm text-muted">
               {groups.next.paymentMethod === "cash" ? t.payCash : t.payCard}
               {" · "}
-              {groups.next.totalSom ? `${groups.next.totalSom} сом · ` : ""}
+              {groups.next.totalSom ? `${formatSom(groups.next.totalSom)} · ` : ""}
               {groups.next.paymentStatus === "paid" ? t.adminPaid : t.adminUnpaid}
             </p>
+            {groups.next.paymentMethod === "mbank" &&
+            groups.next.paymentStatus !== "paid" &&
+            groups.next.totalSom ? (
+              <div className="mt-5">
+                <MbankPayPanel amountSom={groups.next.totalSom} />
+              </div>
+            ) : null}
             <button
               type="button"
               disabled={busyId === groups.next.id}

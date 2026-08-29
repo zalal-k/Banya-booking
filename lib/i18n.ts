@@ -115,7 +115,9 @@ type Copy = {
   payCard: string;
   payCashHint: string;
   payCardHint: string;
-  payWhatsapp: string;
+  payScanQr: string;
+  paySaveQr: string;
+  mbankQrAlt: string;
   adultsLabel: string;
   kidsLabel: string;
   priceRates: string;
@@ -177,6 +179,12 @@ export const COPY: Record<Locale, Copy> = {
     galleryIntro:
       "Kut Banya — реконструкциядан кийинки салттуу баня. Көмүр менен жагабыз. Эки кабина бирдей: чечинүү, жуунуу, анан ысык пар. Люкс эмес — жөнөкөй жана жагымдуу.",
     photos: [
+      {
+        src: "/images/gallery-street.jpg",
+        title: "Жолдон көрүнүш",
+        text: "Банянын алдынан негизги жол. Автобус аялдамасынын артында — келгенде табуу оңой.",
+        alt: "Банядан жолго караган кечки көрүнүш",
+      },
       {
         src: "/images/gallery-sauna.jpg",
         title: "Ысык пар",
@@ -319,16 +327,16 @@ export const COPY: Record<Locale, Copy> = {
     payCash: "Кийинчерээк төлөйм",
     payCard: "MBank менен",
     payCashHint: "Брондоо сакталат. Акчаны баняда бересиз.",
-    payCardHint:
-      "MBank: Rahat, номер 703 161 586. Төлөп, чекти WhatsAppка жибериңиз.",
-    payWhatsapp: "Чекти WhatsAppка жиберүү",
+    payCardHint: "QR кодду скандаңыз же галереяга сактаңыз.",
+    payScanQr: "QR кодду скандаңыз. Же сүрөттү жүктөп, галереяга сактаңыз.",
+    paySaveQr: "QR кодду жүктөө",
+    mbankQrAlt: "MBank төлөм QR коду, РАХАТ Ж.",
     adultsLabel: "Чоңдор",
     kidsLabel: "7 жашка чейинки балдар",
     priceRates:
       "Бир адам (жеке) — саатына 200 сом. Эки же андан көп — ар бир чоң адамга саатына 150 сом. 7 жашка чейинки бала — саатына 80 сом.",
     priceTotal: "Жалпы",
-    successMbank:
-      "Брон сакталды. MBank аркылуу Rahat, 703 161 586 номерине төлөп, чекти WhatsAppка жибериңиз.",
+    successMbank: "Брон сакталды. QR менен төлөңүз — алуучу РАХАТ Ж.",
     bookNeedLogin: "Брондоо үчүн адегенде кириңиз.",
     bookTaken: "Бул саат бош эмес. Башкасын тандаңыз.",
     adminTitle: "Брондор",
@@ -383,6 +391,12 @@ export const COPY: Record<Locale, Copy> = {
     galleryIntro:
       "Kut Banya — традиционная баня после реконструкции. Топим углём. Две одинаковые кабины: раздевалка, мойка и горячий пар. Без роскоши — просто хорошо.",
     photos: [
+      {
+        src: "/images/gallery-street.jpg",
+        title: "Вид на дорогу",
+        text: "Так выглядит трасса от входа в баню. Мы за автобусной остановкой — найти легко.",
+        alt: "Вечерний вид с бани на дорогу",
+      },
       {
         src: "/images/gallery-sauna.jpg",
         title: "Горячий пар",
@@ -524,16 +538,16 @@ export const COPY: Record<Locale, Copy> = {
     payCash: "Оплачу позже",
     payCard: "Через MBank",
     payCashHint: "Бронь сохранится. Деньги отдадите в бане.",
-    payCardHint:
-      "MBank: Rahat, номер 703 161 586. Оплатите и отправьте чек в WhatsApp.",
-    payWhatsapp: "Отправить чек в WhatsApp",
+    payCardHint: "Отсканируйте QR или сохраните его в галерею.",
+    payScanQr: "Отсканируйте QR. Или скачайте картинку и сохраните в галерею.",
+    paySaveQr: "Скачать QR-код",
+    mbankQrAlt: "QR-код оплаты MBank, РАХАТ Ж.",
     adultsLabel: "Взрослые",
     kidsLabel: "Дети до 7 лет",
     priceRates:
       "Один человек (индивидуально) — 200 сом/час. Двое и больше — 150 сом/час за каждого взрослого. Ребёнок до 7 лет — 80 сом/час.",
     priceTotal: "Итого",
-    successMbank:
-      "Бронь сохранена. Оплатите в MBank на Rahat, 703 161 586, и пришлите чек в WhatsApp.",
+    successMbank: "Бронь сохранена. Оплатите по QR — получатель РАХАТ Ж.",
     bookNeedLogin: "Чтобы забронировать, сначала войдите.",
     bookTaken: "Это время уже занято. Выберите другое.",
     adminTitle: "Брони",
@@ -588,6 +602,12 @@ export const COPY: Record<Locale, Copy> = {
     galleryIntro:
       "Kut Banya is a traditional sauna after reconstruction. We heat with coal. Two matching cabins: change, wash, then a hot room. Not premium — just well kept and welcoming.",
     photos: [
+      {
+        src: "/images/gallery-street.jpg",
+        title: "View to the road",
+        text: "This is the main road from the sauna door. We sit behind the bus stop, so it is easy to find.",
+        alt: "Evening view from the sauna toward the street",
+      },
       {
         src: "/images/gallery-sauna.jpg",
         title: "Hot steam",
@@ -729,16 +749,16 @@ export const COPY: Record<Locale, Copy> = {
     payCash: "Pay later",
     payCard: "Pay with MBank",
     payCashHint: "The booking is saved. Pay in cash at the banya.",
-    payCardHint:
-      "MBank: Rahat, number 703 161 586. Pay and send the receipt on WhatsApp.",
-    payWhatsapp: "Send receipt on WhatsApp",
+    payCardHint: "Scan the QR or save it to your gallery.",
+    payScanQr: "Scan this QR, or download the picture and save it to your gallery.",
+    paySaveQr: "Download QR code",
+    mbankQrAlt: "MBank payment QR code for РАХАТ Ж.",
     adultsLabel: "Adults",
     kidsLabel: "Kids under 7",
     priceRates:
       "One person (individual) — 200 som per hour. Two or more — 150 som per hour per adult. Child under 7 — 80 som per hour.",
     priceTotal: "Total",
-    successMbank:
-      "Booking saved. Pay in MBank to Rahat, 703 161 586, and send the receipt on WhatsApp.",
+    successMbank: "Booking saved. Pay with the QR — recipient РАХАТ Ж.",
     bookNeedLogin: "Log in first to book a time.",
     bookTaken: "That hour is taken. Please pick another.",
     adminTitle: "Bookings",
