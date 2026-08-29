@@ -29,14 +29,17 @@ export function HomePage() {
             <div className="mb-4">
               <BrandLogo size="lg" priority />
             </div>
-            <p className="mb-6 flex items-center gap-3 text-[11px] font-medium tracking-[0.28em] text-[#cbbba8] uppercase">
+            <p className="mb-2 flex items-center gap-3 text-[11px] font-medium tracking-[0.28em] text-[#cbbba8] uppercase">
               <span className="h-px w-8 bg-accent" />
               {BRAND_SLOGAN}
+            </p>
+            <p className="mb-6 text-[11px] tracking-[0.18em] text-accent uppercase">
+              {t.yearsLine}
             </p>
             <h1 className="font-serif text-[2.75rem] leading-[1.05] font-medium tracking-tight text-foreground sm:text-6xl lg:text-7xl">
               Kut <span className="text-accent">Banya</span>
             </h1>
-            <p className="mt-6 max-w-md text-base leading-8 text-muted sm:text-lg">
+            <p className="mt-6 max-w-lg text-base leading-8 text-muted sm:text-lg">
               {t.heroLead}
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -69,11 +72,41 @@ export function HomePage() {
           </h2>
           <div className="mt-10 grid gap-8 sm:grid-cols-3">
             {t.whyItems.map((item) => (
-              <div key={item.title}>
+              <div
+                key={item.title}
+                className="rounded-3xl border border-line bg-background/40 p-5"
+              >
                 <h3 className="font-serif text-2xl text-foreground">
                   {item.title}
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-muted">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-line bg-background px-5 py-16 sm:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-[11px] tracking-[0.24em] text-accent uppercase">
+            {t.roomsEyebrow}
+          </p>
+          <h2 className="mt-3 font-serif text-3xl text-foreground sm:text-5xl">
+            {t.roomsTitle}
+          </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-7 text-muted">
+            {t.roomsLead}
+          </p>
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+            {t.rooms.map((room) => (
+              <div
+                key={room.title}
+                className="rounded-3xl border border-line bg-panel p-6"
+              >
+                <h3 className="font-serif text-2xl text-foreground">
+                  {room.title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-muted">{room.text}</p>
               </div>
             ))}
           </div>

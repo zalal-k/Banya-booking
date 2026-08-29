@@ -20,6 +20,7 @@ type Copy = {
   navGallery: string;
   navBook: string;
   heroLead: string;
+  yearsLine: string;
   bookCta: string;
   galleryCta: string;
   heroImageAlt: string;
@@ -30,6 +31,10 @@ type Copy = {
   whyEyebrow: string;
   whyTitle: string;
   whyItems: Array<{ title: string; text: string }>;
+  roomsEyebrow: string;
+  roomsTitle: string;
+  roomsLead: string;
+  rooms: Array<{ title: string; text: string }>;
   contactEyebrow: string;
   addressLabel: string;
   addressTitle: string;
@@ -162,74 +167,93 @@ export const COPY: Record<Locale, Copy> = {
     navGallery: "Галерея",
     navBook: "Брондоо",
     heroLead:
-      "Токой ичиндеги жылуу үй. Чыныгы ысык, жыгачтын жыты жана жеңил буу шаардын ызы-чуусун эшикте калтырат. Жүп, үй-бүлө же достор менен келиңиз.",
+      "Жолдун боюндагы жөнөкөй, жылуу баня. Беш жылдан бери адамдар бул жерге ден соолук, кан айлануу жана тынчтык үчүн келишет. Көмүр менен жагылат, ысыгы чыныгы, суусу ысык. Премиум эмес — ыңгайлуу, таза жана өзүнө тарткан.",
+    yearsLine: "Беш жыл ысык · салттуу баня",
     bookCta: "Убакыт алуу",
     galleryCta: "Галерея",
-    heroImageAlt: "Токойдогу жылуу үй",
-    galleryEyebrow: "Үй жана жаратылыш",
-    galleryTitle: "Көрүңүз, сезиңиз, эс алыңыз",
+    heroImageAlt: "Ыңгайлуу салттуу баня",
+    galleryEyebrow: "Жылуу үй",
+    galleryTitle: "Кичинекей. Жылуу. Чын.",
     galleryIntro:
-      "Kut Banya — жыгач менен жагылуучу баня. Бул жерде от, токой жана тынчтык бирге. Төмөндө үйдүн жылуулугун жана курчап турган жаратылышты көрөсүз.",
+      "Kut Banya — реконструкциядан кийинки салттуу баня. Көмүр менен жагабыз. Эки кабина бирдей: чечинүү, жуунуу, анан ысык пар. Люкс эмес — жөнөкөй жана жагымдуу.",
     photos: [
       {
         src: "/images/gallery-sauna.jpg",
-        title: "Жылуу пар",
-        text: "Ысык таштар, жыгач керебеттер жана жумшак буу. Баня денени эмес, башты да эс алдырат.",
-        alt: "Жыгач банянын ичи, ысык таштар жана буу",
+        title: "Ысык пар",
+        text: "Үчүнчү бөлмө — баня. Жылуулук канды айлантат, өпкөнү ачат, денени жеңилдетет. Бул жерге ден соолук үчүн келишет.",
+        alt: "Ысык банянын ичи",
       },
       {
         src: "/images/gallery-forest.jpg",
-        title: "Токой тынчтыгы",
-        text: "Үй карагайлардын арасында турат. Терезеден жалаң жаратылыш — машина да, шаар да жок.",
-        alt: "Тумандуу карагай токою",
+        title: "Жолдун боюнда",
+        text: "Негизги жолдун боюнда, автобус аялдамасынын артында. Табуу оңой, кирүү жөнөкөй.",
+        alt: "Баняга жакын жол жана табият",
       },
       {
         src: "/images/gallery-fire.jpg",
-        title: "Чыныгы от",
-        text: "Биз баняны жыгач менен жагабыз. Жыты таза, ысыгы терең, пар жеңил.",
-        alt: "От жана жыгач отун",
+        title: "Көмүр менен",
+        text: "Жыгач эмес — көмүр. Жылуулук терең жана туруктуу. Салттуу баня, жаңы ремонт.",
+        alt: "Банянын ысыгы",
       },
       {
         src: "/images/gallery-mountains.jpg",
-        title: "Тоо абасы",
-        text: "Сессиядан кийин сырттагы муздак аба жана тоолордун тынчтыгы кайра жан берет.",
-        alt: "Кечки тоолор",
+        title: "Тынчтык",
+        text: "Сессиядан кийин дене жеңил, баш тынч. Кичинекей үй — чоң эс алуу.",
+        alt: "Тынч кеч",
       },
     ],
-    whyEyebrow: "Эмне үчүн бул жер",
-    whyTitle: "Жөнөкөй. Таза. Жылуу.",
+    whyEyebrow: "Эмне үчүн Kut Banya",
+    whyTitle: "Жөнөкөй жылуулук, беш жыл сыноодон өткөн",
     whyItems: [
       {
-        title: "2 сааттык сессия",
-        text: "Убакыт 8:00дөн түнкү 1:00гө чейин. Эки кабина бар — ар бирин өзүнчө брондойсуз. Жашыл убакыт бош, боз убакыт алынган.",
+        title: "Салттуу жана жаңыланган",
+        text: "Беш жылдан бери иштейбиз. Жаңы реконструкция: ысык баня, ысык суу, таза бөлмөлөр. Премиум эмес — ыңгайлуу жана жылуу.",
       },
       {
-        title: "Эки кабина",
-        text: "Баняда эки бөлмө. Бири бош эмес болсо, экинчисин тандасаңыз болот.",
+        title: "Эки бирдей кабина",
+        text: "Ар кабинада үч кичинекей бөлмө: чечинүү, жуунуу жана душ, анан ысык пар. Бири бош эмес болсо — экинчисин алыңыз.",
       },
       {
-        title: "Токойго жакын",
-        text: "Шаардан болжол менен 40 мүнөт. Дарбазанын жанында токтоочу жай бар. Брондон кийин жолду жиберебиз.",
+        title: "Ден соолукка",
+        text: "Ысык пар кан айлануусуна, өпкөгө жана жалпы абалга жакшы. Үй-бүлө, достор же жалгыз — бул жерге эс алуу үчүн келишет.",
+      },
+    ],
+    roomsEyebrow: "Кабинанын ичи",
+    roomsTitle: "Үч бөлмө. Бир жылуу жол.",
+    roomsLead:
+      "Эки кабина тең ушундай. Кичинекей, таза, түшүнүктүү.",
+    rooms: [
+      {
+        title: "1 · Чечинүү",
+        text: "Кийимди тынч коюңуз. Шашылбаңыз.",
+      },
+      {
+        title: "2 · Жуунуу",
+        text: "Душ жана ысык суу. Пардын алдында жана кийин.",
+      },
+      {
+        title: "3 · Баня",
+        text: "Чыныгы ысык. Кан, дем, дене — жеңилдейт.",
       },
     ],
     contactEyebrow: "Байланыш",
     addressLabel: "Дарек",
     addressTitle: "Гавриловка, Фрунзе 26",
     addressText:
-      "Сокулук району, Гавриловка айылы, Фрунзе көчөсү 26. Дарбазанын жанында машина койсоңуз болот.",
+      "Сокулук району, Гавриловка айылы, Фрунзе көчөсү 26. Негизги жолдун боюнда, автобус аялдамасынын артында.",
     phoneLabel: "Телефон",
     phoneText:
       "Чалыңыз же WhatsAppка жазыңыз: +996 703 161 586. Онлайн брондоо түнү-күнү ачык.",
     hoursLabel: "Иш убактысы",
     hoursTitle: "08:00 — 01:00",
     hoursText:
-      "Сессия 1 саат. Башталышы 8:00дөн түнкү 1:00гө чейин. Эки кабина.",
+      "Сессия 1 саат. 8:00дөн түнкү 1:00гө чейин. Эки кабина.",
     footerNote: "Kut Banya · Kyrgyz sauna",
     bookEyebrow: "Убакыт тандаңыз",
     bookTitleBefore: "Сессияны",
     bookTitleAccent: "брондоңуз",
     bookIntro:
-      "Адегенде кабинаны, анан саатты тандаңыз. 8:00дөн түнкү 1:00гө чейин. Жашыл — бош, боз — алынган.",
+      "Кабинаны, анан саатты тандаңыз. Ар кабинада чечинүү, жуунуу жана ысык пар. Жашыл — бош, боз — алынган.",
     weekdays: ["Дш", "Шш", "Шр", "Бш", "Жм", "Иш", "Жк"],
     prevMonth: "Мурунку ай",
     nextMonth: "Кийинки ай",
@@ -237,7 +261,7 @@ export const COPY: Record<Locale, Copy> = {
     cabinLabel: "Кабина",
     cabin1: "1-кабина",
     cabin2: "2-кабина",
-    cabinHint: "Эки бөлмө өзүнчө брондолот.",
+    cabinHint: "Эки кабина бирдей. Ар бирин өзүнчө брондойсуз.",
     pickSlot: "Бош убакытты тандаңыз.",
     loadingSlots: "Алынган убакыттар жүктөлүүдө…",
     success: "Убакытыңыз брондолду!",
@@ -349,61 +373,79 @@ export const COPY: Record<Locale, Copy> = {
     navGallery: "Галерея",
     navBook: "Бронь",
     heroLead:
-      "Тёплый дом в лесу, где время замедляется. Настоящий жар, запах дерева и лёгкий пар оставляют город за порогом. Приезжайте вдвоём, семьёй или с друзьями.",
+      "Простая тёплая баня у дороги. Пять лет люди приезжают сюда за жаром, кровообращением и покоем. Топим углём, вода горячая, пар настоящий. Это не премиум — уютно, чисто и по-домашнему.",
+    yearsLine: "Пять лет жара · традиционная баня",
     bookCta: "Забронировать",
     galleryCta: "Галерея",
-    heroImageAlt: "Тёплый дом в лесу",
-    galleryEyebrow: "Дом и природа",
-    galleryTitle: "Увидите, почувствуете, отдохнёте",
+    heroImageAlt: "Уютная традиционная баня",
+    galleryEyebrow: "Тёплый дом",
+    galleryTitle: "Маленькая. Тёплая. Настоящая.",
     galleryIntro:
-      "Kut Banya — баня на дровах. Здесь огонь, лес и тишина. Ниже — тепло дома и природа вокруг.",
+      "Kut Banya — традиционная баня после реконструкции. Топим углём. Две одинаковые кабины: раздевалка, мойка и горячий пар. Без роскоши — просто хорошо.",
     photos: [
       {
         src: "/images/gallery-sauna.jpg",
-        title: "Живой пар",
-        text: "Горячие камни, деревянные полки и мягкий пар. Баня отдыхает не только тело — ещё и голову.",
-        alt: "Интерьер дровяной бани с горячими камнями",
+        title: "Горячий пар",
+        text: "Третья комната — баня. Жар помогает крови, лёгким и общему самочувствию. Сюда едут за здоровьем.",
+        alt: "Горячая баня внутри",
       },
       {
         src: "/images/gallery-forest.jpg",
-        title: "Тишина леса",
-        text: "Дом стоит среди елей. За окном только природа — без машин и без города.",
-        alt: "Туманный хвойный лес",
+        title: "У дороги",
+        text: "На центральной трассе, за автобусной остановкой. Легко найти, удобно заехать.",
+        alt: "Дорога и природа у бани",
       },
       {
         src: "/images/gallery-fire.jpg",
-        title: "Настоящий огонь",
-        text: "Топим дровами. Запах чистый, жар глубокий, пар лёгкий.",
-        alt: "Огонь и дрова",
+        title: "Углём, не дровами",
+        text: "Жар глубокий и ровный. Традиционная баня, свежий ремонт.",
+        alt: "Жар бани",
       },
       {
         src: "/images/gallery-mountains.jpg",
-        title: "Горный воздух",
-        text: "После сессии холодный воздух и тишина гор возвращают силы.",
-        alt: "Горы на закате",
+        title: "Тишина",
+        text: "После сессии тело лёгкое, голова спокойная. Маленький дом — большой отдых.",
+        alt: "Спокойный вечер",
       },
     ],
-    whyEyebrow: "Почему сюда",
-    whyTitle: "Просто. Чисто. Тепло.",
+    whyEyebrow: "Почему Kut Banya",
+    whyTitle: "Простое тепло, проверенное пятью годами",
     whyItems: [
       {
-        title: "Сессия на 2 часа",
-        text: "Время с 8:00 до 1:00 ночи. Две кабины — каждую бронируете отдельно. Зелёное время свободно, серое уже занято.",
+        title: "Традиция и обновление",
+        text: "Работаем пять лет. После реконструкции: горячая баня, горячая вода, чистые комнаты. Не люкс — уютно и тепло.",
       },
       {
-        title: "Две кабины",
-        text: "В бане две комнаты. Если одна занята, можно взять вторую на то же время.",
+        title: "Две одинаковые кабины",
+        text: "В каждой кабине три маленькие комнаты: раздевалка, душ и мойка, затем парная. Если одна занята — берите вторую.",
       },
       {
-        title: "Рядом с лесом",
-        text: "Около 40 минут от города. Парковка у ворот. После брони пришлём дорогу.",
+        title: "Для здоровья",
+        text: "Жар помогает кровообращению, дыханию и общему тонусу. Семьёй, с друзьями или вдвоём — люди возвращаются, потому что здесь хорошо.",
+      },
+    ],
+    roomsEyebrow: "Внутри кабины",
+    roomsTitle: "Три комнаты. Один тёплый путь.",
+    roomsLead: "Обе кабины устроены одинаково. Маленько, чисто, понятно.",
+    rooms: [
+      {
+        title: "1 · Раздевалка",
+        text: "Спокойно оставьте одежду. Без спешки.",
+      },
+      {
+        title: "2 · Мойка",
+        text: "Душ и горячая вода. До пара и после.",
+      },
+      {
+        title: "3 · Баня",
+        text: "Настоящий жар. Кровь, дыхание, тело — легче.",
       },
     ],
     contactEyebrow: "Контакты",
     addressLabel: "Адрес",
     addressTitle: "Гавриловка, Фрунзе 26",
     addressText:
-      "Сокулукский район, село Гавриловка, улица Фрунзе 26. Можно оставить машину у ворот.",
+      "Сокулукский район, село Гавриловка, улица Фрунзе 26. На центральной дороге, за автобусной остановкой.",
     phoneLabel: "Телефон",
     phoneText:
       "Звоните или пишите в WhatsApp: +996 703 161 586. Онлайн-бронь открыта днём и ночью.",
@@ -416,7 +458,7 @@ export const COPY: Record<Locale, Copy> = {
     bookTitleBefore: "Забронируйте",
     bookTitleAccent: "сессию",
     bookIntro:
-      "Сначала выберите кабину, затем час. С 8:00 до 1:00 ночи. Зелёное — свободно, серое — занято.",
+      "Сначала выберите кабину, затем час. В каждой кабине раздевалка, мойка и горячий пар. Зелёное — свободно, серое — занято.",
     weekdays: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
     prevMonth: "Предыдущий месяц",
     nextMonth: "Следующий месяц",
@@ -424,7 +466,7 @@ export const COPY: Record<Locale, Copy> = {
     cabinLabel: "Кабина",
     cabin1: "Кабина 1",
     cabin2: "Кабина 2",
-    cabinHint: "Две комнаты бронируются отдельно.",
+    cabinHint: "Две кабины одинаковые. Каждую бронируете отдельно.",
     pickSlot: "Выберите свободное время.",
     loadingSlots: "Загружаем занятые часы…",
     success: "Ваше время забронировано!",
@@ -536,61 +578,79 @@ export const COPY: Record<Locale, Copy> = {
     navGallery: "Gallery",
     navBook: "Book",
     heroLead:
-      "A warm house in the forest, where time slows down. Real heat, the aroma of wood, and light steam help leave the city at the doorstep. Come as a couple, with family, or with friends.",
+      "A simple, warm sauna by the road. For five years people come here for real heat, better circulation, and a quiet hour. We fire with coal, the water is hot, the steam is honest. Not luxury — small, clean, and easy to love.",
+    yearsLine: "Five years of heat · traditional sauna",
     bookCta: "Book Now",
     galleryCta: "Gallery",
-    heroImageAlt: "A warm house in the forest",
-    galleryEyebrow: "House and nature",
-    galleryTitle: "See it, feel it, rest",
+    heroImageAlt: "A cozy traditional sauna",
+    galleryEyebrow: "A warm house",
+    galleryTitle: "Small. Warm. Real.",
     galleryIntro:
-      "Kut Banya is a wood-fired sauna. Fire, forest, and quiet in one place. Below is the warmth of the house and the land around it.",
+      "Kut Banya is a traditional sauna after reconstruction. We heat with coal. Two matching cabins: change, wash, then a hot room. Not premium — just well kept and welcoming.",
     photos: [
       {
         src: "/images/gallery-sauna.jpg",
-        title: "Living steam",
-        text: "Hot stones, timber benches, and soft steam. The banya rests the body and the mind.",
-        alt: "Wood-fired sauna interior with hot stones and steam",
+        title: "Hot steam",
+        text: "The third room is the sauna. The heat is kind to blood flow, lungs, and how you feel. People come for their health.",
+        alt: "Hot sauna interior",
       },
       {
         src: "/images/gallery-forest.jpg",
-        title: "Forest quiet",
-        text: "The house stands among pines. Outside the window there is only nature — no cars, no city.",
-        alt: "Misty pine forest",
+        title: "By the road",
+        text: "On the main road, behind the bus stop. Easy to find, easy to pull in.",
+        alt: "Road and nature near the sauna",
       },
       {
         src: "/images/gallery-fire.jpg",
-        title: "Real fire",
-        text: "We heat with wood. The scent is clean, the heat is deep, the steam is light.",
-        alt: "Fire and firewood",
+        title: "Coal, not wood",
+        text: "The heat is deep and steady. A traditional sauna with a fresh rebuild.",
+        alt: "Sauna heat",
       },
       {
         src: "/images/gallery-mountains.jpg",
-        title: "Mountain air",
-        text: "After the session, cold air and the quiet of the mountains give you back your strength.",
-        alt: "Mountains at dusk",
+        title: "Quiet",
+        text: "After the hour the body feels light and the head is calm. A small house, a real rest.",
+        alt: "A calm evening",
       },
     ],
-    whyEyebrow: "Why here",
-    whyTitle: "Simple. Clean. Warm.",
+    whyEyebrow: "Why Kut Banya",
+    whyTitle: "Simple heat, trusted for five years",
     whyItems: [
       {
-        title: "Two-hour sessions",
-        text: "Hours run from 8:00 to 1:00 a.m. There are two cabins — each is booked on its own. Green times are free. Gray times are taken.",
+        title: "Traditional, renewed",
+        text: "We have been open five years. After reconstruction: a hot sauna, hot water, clean rooms. Not a luxury spa — cozy and warm.",
       },
       {
-        title: "Two cabins",
-        text: "The sauna has two rooms. If one is taken, you can still book the other at the same hour.",
+        title: "Two matching cabins",
+        text: "Each cabin has three small rooms: changing, shower and wash, then the hot sauna. If one is taken, book the other.",
       },
       {
-        title: "Close to the forest",
-        text: "About 40 minutes from the city. Parking by the gate. After you book, we send the way.",
+        title: "Good for the body",
+        text: "The heat supports circulation, breathing, and general well-being. Couples, families, friends — people return because it feels right.",
+      },
+    ],
+    roomsEyebrow: "Inside the cabin",
+    roomsTitle: "Three rooms. One warm path.",
+    roomsLead: "Both cabins are the same. Small, clean, easy to understand.",
+    rooms: [
+      {
+        title: "1 · Change",
+        text: "Leave your clothes in peace. No rush.",
+      },
+      {
+        title: "2 · Wash",
+        text: "Shower and hot water. Before the steam and after.",
+      },
+      {
+        title: "3 · Sauna",
+        text: "Real heat. Blood, breath, body — lighter.",
       },
     ],
     contactEyebrow: "Contacts",
     addressLabel: "Address",
     addressTitle: "Gavrilovka, Frunze 26",
     addressText:
-      "Sokuluk district, Gavrilovka village, Frunze 26 street. You can leave the car by the gate.",
+      "Sokuluk district, Gavrilovka village, Frunze 26 street. On the main road, behind the bus stop.",
     phoneLabel: "Phone",
     phoneText:
       "Call or WhatsApp +996 703 161 586. Online booking is open day and night.",
@@ -603,7 +663,7 @@ export const COPY: Record<Locale, Copy> = {
     bookTitleBefore: "Book your",
     bookTitleAccent: "session",
     bookIntro:
-      "Choose a cabin first, then a time. From 8:00 to 1:00 a.m. Green is free. Gray is taken.",
+      "Choose a cabin, then an hour. Each cabin has a changing room, a wash room, and a hot sauna. Green is free. Gray is taken.",
     weekdays: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
     prevMonth: "Previous month",
     nextMonth: "Next month",
@@ -611,7 +671,7 @@ export const COPY: Record<Locale, Copy> = {
     cabinLabel: "Cabin",
     cabin1: "Cabin 1",
     cabin2: "Cabin 2",
-    cabinHint: "The two rooms are booked separately.",
+    cabinHint: "Both cabins are the same. Book each one on its own.",
     pickSlot: "Pick an open slot.",
     loadingSlots: "Loading reserved times…",
     success: "Your time slot has been booked!",
