@@ -33,7 +33,11 @@ export function GalleryPage() {
                   src={photo.src}
                   alt={photo.alt}
                   fill
-                  className="object-cover"
+                  className={
+                    photo.src.includes("gallery-street")
+                      ? "object-cover object-[center_28%]"
+                      : "object-cover"
+                  }
                   sizes="(max-width: 640px) 100vw, 50vw"
                 />
               </div>

@@ -6,7 +6,8 @@ import { AdminDayBoard } from "@/components/admin-day-board";
 import { PageBack } from "@/components/page-back";
 import { useAuth } from "@/components/auth-provider";
 import { useLanguage } from "@/components/language-provider";
-import { CONTACT_PHONE_DISPLAY, MBANK_NAME, MBANK_NUMBER, whatsappHref } from "@/lib/contact";
+import { MbankPayPanel } from "@/components/mbank-pay-panel";
+import { MBANK_NAME, MBANK_NUMBER } from "@/lib/contact";
 import { bookingTotalSom, formatSom } from "@/lib/pricing";
 import {
   CABINS,
@@ -302,22 +303,10 @@ export function BookingFlow() {
                     {confirmed.paymentMethod === "cash" ? t.payCash : t.payCard}
                   </p>
                   {confirmed.paymentMethod === "mbank" ? (
-                    <>
-                      <p className="mt-3 text-muted">{t.successMbank}</p>
-                      <p className="mt-1 font-medium text-foreground">
-                        MBank: {MBANK_NAME} · {MBANK_NUMBER}
-                      </p>
-                      <a
-                        href={whatsappHref(
-                          `${cabinName(confirmed.cabin)} ${confirmed.date} ${confirmed.time} ${formatSom(confirmed.totalSom)}`,
-                        )}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="mt-3 inline-flex rounded-full bg-accent px-4 py-2 text-sm text-foreground"
-                      >
-                        {t.payWhatsapp} · {CONTACT_PHONE_DISPLAY}
-                      </a>
-                    </>
+                    <div className="mt-4">
+                      <p className="mb-3 text-muted">{t.successMbank}</p>
+                      <MbankPayPanel amountSom={confirmed.totalSom} />
+                    </div>
                   ) : null}
                 </div>
               ) : null}
@@ -427,6 +416,9 @@ export function BookingFlow() {
                       </label>
                     </div>
                   </fieldset>
+                  {paymentMethod === "mbank" ? (
+                    <MbankPayPanel amountSom={totalSom} />
+                  ) : null}
                   {formError ? (
                     <p className="text-sm text-accent" role="alert">
                       {formError}

@@ -1,7 +1,8 @@
 export const CONTACT_PHONE = "+996703161586";
 export const CONTACT_PHONE_DISPLAY = "+996 703 161 586";
-export const MBANK_NAME = "Rahat";
+export const MBANK_NAME = "РАХАТ Ж.";
 export const MBANK_NUMBER = "703 161 586";
+export const MBANK_QR_SRC = "/images/mbank-qr.png";
 export const WHATSAPP_LINK = "https://wa.me/996703161586";
 
 export function telHref() {
