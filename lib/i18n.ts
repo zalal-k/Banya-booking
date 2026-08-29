@@ -6,7 +6,7 @@ export const DEFAULT_LOCALE: Locale = "ky";
 export const STORAGE_LOCALE_KEY = "kut-banya-locale";
 
 export const BRAND_NAME = "Kut Banya";
-export const BRAND_SLOGAN = "Kyrgyz sauna";
+export const BRAND_SLOGAN = "Traditional Russian steam room";
 
 export const DATE_LOCALES: Record<Locale, string> = {
   ky: "ky-KG",
@@ -21,6 +21,7 @@ type Copy = {
   navBook: string;
   heroLead: string;
   yearsLine: string;
+  brandSlogan: string;
   bookCta: string;
   galleryCta: string;
   heroImageAlt: string;
@@ -169,15 +170,16 @@ export const COPY: Record<Locale, Copy> = {
     navGallery: "Галерея",
     navBook: "Брондоо",
     heroLead:
-      "Жолдун боюндагы жөнөкөй, жылуу баня. Беш жылдан бери адамдар бул жерге ден соолук, кан айлануу жана тынчтык үчүн келишет. Көмүр менен жагылат, ысыгы чыныгы, суусу ысык. Премиум эмес — ыңгайлуу, таза жана өзүнө тарткан.",
-    yearsLine: "Беш жыл ысык · салттуу баня",
+      "Жолдун боюндагы жөнөкөй, жылуу орус пары. Сегиз жылдан бери — 2018-жылдан — адамдар бул жерге ден соолук, кан айлануу жана тынчтык үчүн келишет. Көмүр менен жагылат, ысыгы чыныгы, суусу ысык. Премиум эмес — ыңгайлуу, таза жана өзүнө тарткан.",
+    yearsLine: "Сегиз жыл ысык · 2018-жылдан",
+    brandSlogan: "Салттуу орус пары",
     bookCta: "Убакыт алуу",
     galleryCta: "Галерея",
-    heroImageAlt: "Ыңгайлуу салттуу баня",
+    heroImageAlt: "Ыңгайлуу салттуу орус пары",
     galleryEyebrow: "Жылуу үй",
     galleryTitle: "Кичинекей. Жылуу. Чын.",
     galleryIntro:
-      "Kut Banya — реконструкциядан кийинки салттуу баня. Көмүр менен жагабыз. Эки кабина бирдей: чечинүү, жуунуу, анан ысык пар. Люкс эмес — жөнөкөй жана жагымдуу.",
+      "Kut Banya — реконструкциядан кийинки салттуу орус пары. Көмүр менен жагабыз. Эки кабина бирдей: чечинүү, жуунуу, анан ысык пар. Люкс эмес — жөнөкөй жана жагымдуу.",
     photos: [
       {
         src: "/images/gallery-street.jpg",
@@ -200,7 +202,7 @@ export const COPY: Record<Locale, Copy> = {
       {
         src: "/images/gallery-fire.jpg",
         title: "Көмүр менен",
-        text: "Жыгач эмес — көмүр. Жылуулук терең жана туруктуу. Салттуу баня, жаңы ремонт.",
+        text: "Жыгач эмес — көмүр. Жылуулук терең жана туруктуу. Салттуу орус пары, жаңы ремонт.",
         alt: "Банянын ысыгы",
       },
       {
@@ -211,11 +213,11 @@ export const COPY: Record<Locale, Copy> = {
       },
     ],
     whyEyebrow: "Эмне үчүн Kut Banya",
-    whyTitle: "Жөнөкөй жылуулук, беш жыл сыноодон өткөн",
+    whyTitle: "Жөнөкөй жылуулук, сегиз жыл сыноодон өткөн",
     whyItems: [
       {
         title: "Салттуу жана жаңыланган",
-        text: "Беш жылдан бери иштейбиз. Жаңы реконструкция: ысык баня, ысык суу, таза бөлмөлөр. Премиум эмес — ыңгайлуу жана жылуу.",
+        text: "2018-жылдан бери иштейбиз — сегиз жыл. Жаңы реконструкция: ысык орус пары, ысык суу, таза бөлмөлөр. Премиум эмес — ыңгайлуу жана жылуу.",
       },
       {
         title: "Эки бирдей кабина",
@@ -256,7 +258,7 @@ export const COPY: Record<Locale, Copy> = {
     hoursTitle: "08:00 — 01:00",
     hoursText:
       "Сессия 1 саат. 8:00дөн түнкү 1:00гө чейин. Эки кабина.",
-    footerNote: "Kut Banya · Kyrgyz sauna",
+    footerNote: "Kut Banya · салттуу орус пары",
     bookEyebrow: "Убакыт тандаңыз",
     bookTitleBefore: "Сессияны",
     bookTitleAccent: "брондоңуз",
@@ -381,15 +383,16 @@ export const COPY: Record<Locale, Copy> = {
     navGallery: "Галерея",
     navBook: "Бронь",
     heroLead:
-      "Простая тёплая баня у дороги. Пять лет люди приезжают сюда за жаром, кровообращением и покоем. Топим углём, вода горячая, пар настоящий. Это не премиум — уютно, чисто и по-домашнему.",
-    yearsLine: "Пять лет жара · традиционная баня",
+      "Простая тёплая русская парная у дороги. Восемь лет — с 2018 года — люди приезжают сюда за жаром, кровообращением и покоем. Топим углём, вода горячая, пар настоящий. Это не премиум — уютно, чисто и по-домашнему.",
+    yearsLine: "Восемь лет жара · с 2018 года",
+    brandSlogan: "Традиционная русская парная",
     bookCta: "Забронировать",
     galleryCta: "Галерея",
-    heroImageAlt: "Уютная традиционная баня",
+    heroImageAlt: "Уютная традиционная русская парная",
     galleryEyebrow: "Тёплый дом",
     galleryTitle: "Маленькая. Тёплая. Настоящая.",
     galleryIntro:
-      "Kut Banya — традиционная баня после реконструкции. Топим углём. Две одинаковые кабины: раздевалка, мойка и горячий пар. Без роскоши — просто хорошо.",
+      "Kut Banya — традиционная русская парная после реконструкции. Топим углём. Две одинаковые кабины: раздевалка, мойка и горячий пар. Без роскоши — просто хорошо.",
     photos: [
       {
         src: "/images/gallery-street.jpg",
@@ -412,7 +415,7 @@ export const COPY: Record<Locale, Copy> = {
       {
         src: "/images/gallery-fire.jpg",
         title: "Углём, не дровами",
-        text: "Жар глубокий и ровный. Традиционная баня, свежий ремонт.",
+        text: "Жар глубокий и ровный. Традиционная русская парная, свежий ремонт.",
         alt: "Жар бани",
       },
       {
@@ -423,11 +426,11 @@ export const COPY: Record<Locale, Copy> = {
       },
     ],
     whyEyebrow: "Почему Kut Banya",
-    whyTitle: "Простое тепло, проверенное пятью годами",
+    whyTitle: "Простое тепло, проверенное восемью годами",
     whyItems: [
       {
         title: "Традиция и обновление",
-        text: "Работаем пять лет. После реконструкции: горячая баня, горячая вода, чистые комнаты. Не люкс — уютно и тепло.",
+        text: "Работаем с 2018 года — восемь лет. После реконструкции: горячая русская парная, горячая вода, чистые комнаты. Не люкс — уютно и тепло.",
       },
       {
         title: "Две одинаковые кабины",
@@ -467,7 +470,7 @@ export const COPY: Record<Locale, Copy> = {
     hoursTitle: "08:00 — 01:00",
     hoursText:
       "Сессия 1 час. Старт с 8:00 до 1:00 ночи. Две кабины.",
-    footerNote: "Kut Banya · Kyrgyz sauna",
+    footerNote: "Kut Banya · традиционная русская парная",
     bookEyebrow: "Выберите время",
     bookTitleBefore: "Забронируйте",
     bookTitleAccent: "сессию",
@@ -592,15 +595,16 @@ export const COPY: Record<Locale, Copy> = {
     navGallery: "Gallery",
     navBook: "Book",
     heroLead:
-      "A simple, warm sauna by the road. For five years people come here for real heat, better circulation, and a quiet hour. We fire with coal, the water is hot, the steam is honest. Not luxury — small, clean, and easy to love.",
-    yearsLine: "Five years of heat · traditional sauna",
+      "A simple, warm traditional Russian steam room by the road. For eight years — since 2018 — people come here for real heat, better circulation, and a quiet hour. We fire with coal, the water is hot, the steam is honest. Not luxury — small, clean, and easy to love.",
+    yearsLine: "Eight years of heat · since 2018",
+    brandSlogan: "Traditional Russian steam room",
     bookCta: "Book Now",
     galleryCta: "Gallery",
-    heroImageAlt: "A cozy traditional sauna",
+    heroImageAlt: "A cozy traditional Russian steam room",
     galleryEyebrow: "A warm house",
     galleryTitle: "Small. Warm. Real.",
     galleryIntro:
-      "Kut Banya is a traditional sauna after reconstruction. We heat with coal. Two matching cabins: change, wash, then a hot room. Not premium — just well kept and welcoming.",
+      "Kut Banya is a traditional Russian steam room after reconstruction. We heat with coal. Two matching cabins: change, wash, then a hot room. Not premium — just well kept and welcoming.",
     photos: [
       {
         src: "/images/gallery-street.jpg",
@@ -623,7 +627,7 @@ export const COPY: Record<Locale, Copy> = {
       {
         src: "/images/gallery-fire.jpg",
         title: "Coal, not wood",
-        text: "The heat is deep and steady. A traditional sauna with a fresh rebuild.",
+        text: "The heat is deep and steady. A traditional Russian steam room with a fresh rebuild.",
         alt: "Sauna heat",
       },
       {
@@ -634,11 +638,11 @@ export const COPY: Record<Locale, Copy> = {
       },
     ],
     whyEyebrow: "Why Kut Banya",
-    whyTitle: "Simple heat, trusted for five years",
+    whyTitle: "Simple heat, trusted for eight years",
     whyItems: [
       {
         title: "Traditional, renewed",
-        text: "We have been open five years. After reconstruction: a hot sauna, hot water, clean rooms. Not a luxury spa — cozy and warm.",
+        text: "We have been open since 2018 — eight years. After reconstruction: a hot Russian steam room, hot water, clean rooms. Not a luxury spa — cozy and warm.",
       },
       {
         title: "Two matching cabins",
@@ -678,7 +682,7 @@ export const COPY: Record<Locale, Copy> = {
     hoursTitle: "08:00 — 01:00",
     hoursText:
       "Sessions last 1 hour. Starts from 8:00 until 1:00 a.m. Two cabins.",
-    footerNote: "Kut Banya · Kyrgyz sauna",
+    footerNote: "Kut Banya · traditional Russian steam room",
     bookEyebrow: "Choose a time",
     bookTitleBefore: "Book your",
     bookTitleAccent: "session",

@@ -5,7 +5,6 @@ import Link from "next/link";
 import { BrandLogo } from "@/components/brand-logo";
 import { useLanguage } from "@/components/language-provider";
 import { CONTACT_PHONE_DISPLAY, telHref } from "@/lib/contact";
-import { BRAND_SLOGAN } from "@/lib/i18n";
 
 export function HomePage() {
   const { t } = useLanguage();
@@ -31,7 +30,7 @@ export function HomePage() {
             </div>
             <p className="mb-2 flex items-center gap-3 text-[11px] font-medium tracking-[0.28em] text-[#cbbba8] uppercase">
               <span className="h-px w-8 bg-accent" />
-              {BRAND_SLOGAN}
+              {t.brandSlogan}
             </p>
             <p className="mb-6 text-[11px] tracking-[0.18em] text-accent uppercase">
               {t.yearsLine}

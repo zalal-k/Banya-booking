@@ -8,7 +8,7 @@ import { BrandLogo } from "@/components/brand-logo";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { useAuth } from "@/components/auth-provider";
 import { useLanguage } from "@/components/language-provider";
-import { BRAND_NAME, BRAND_SLOGAN } from "@/lib/i18n";
+import { BRAND_NAME } from "@/lib/i18n";
 
 export function SiteHeader() {
   const { t } = useLanguage();
@@ -59,7 +59,7 @@ export function SiteHeader() {
                 {BRAND_NAME}
               </span>
               <span className="block text-[11px] tracking-[0.18em] text-[#cbbba8] uppercase">
-                {BRAND_SLOGAN}
+                {t.brandSlogan}
               </span>
             </span>
           </Link>
