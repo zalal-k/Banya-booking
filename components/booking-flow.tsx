@@ -2,7 +2,6 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { AdminDayBoard } from "@/components/admin-day-board";
 import { PageBack } from "@/components/page-back";
 import { useAuth } from "@/components/auth-provider";
 import { useLanguage } from "@/components/language-provider";
@@ -27,7 +26,7 @@ import {
 
 export function BookingFlow() {
   const { t, dateLocale } = useLanguage();
-  const { user, ready: authReady, isAdmin } = useAuth();
+  const { user, ready: authReady } = useAuth();
   const todayKey = toDateKey(new Date());
   const [month, setMonth] = useState(() => {
     const now = new Date();
@@ -148,18 +147,6 @@ export function BookingFlow() {
 
         {!authReady ? (
           <p className="mt-10 text-muted">…</p>
-        ) : isAdmin ? (
-          <AdminDayBoard />
-        ) : !user ? (
-          <div className="mt-10 max-w-md rounded-3xl border border-line bg-panel p-6">
-            <p className="text-sm leading-6 text-muted">{t.bookNeedLogin}</p>
-            <Link
-              href="/sign-in"
-              className="mt-5 inline-flex rounded-full bg-accent px-6 py-3 text-sm text-foreground"
-            >
-              {t.navLogin}
-            </Link>
-          </div>
         ) : (
           <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
             <section className="rounded-3xl border border-line bg-panel p-5 sm:p-7">
@@ -424,13 +411,25 @@ export function BookingFlow() {
                       {formError}
                     </p>
                   ) : null}
-                  <button
-                    type="submit"
-                    disabled={busy || totalSom < 1}
-                    className="w-full rounded-full bg-accent py-3.5 text-sm font-medium text-foreground shadow-[0_0_28px_rgba(200,16,46,0.35)] transition hover:bg-accent-deep disabled:opacity-60"
-                  >
-                    {t.confirm}
-                  </button>
+                  {user ? (
+                    <button
+                      type="submit"
+                      disabled={busy || totalSom < 1}
+                      className="w-full rounded-full bg-accent py-3.5 text-sm font-medium text-foreground shadow-[0_0_28px_rgba(200,16,46,0.35)] transition hover:bg-accent-deep disabled:opacity-60"
+                    >
+                      {t.confirm}
+                    </button>
+                  ) : (
+                    <div className="space-y-3">
+                      <p className="text-sm leading-6 text-muted">{t.bookNeedLogin}</p>
+                      <Link
+                        href="/sign-in"
+                        className="flex w-full items-center justify-center rounded-full bg-accent py-3.5 text-sm font-medium text-foreground shadow-[0_0_28px_rgba(200,16,46,0.35)]"
+                      >
+                        {t.navLogin}
+                      </Link>
+                    </div>
+                  )}
                 </form>
               ) : null}
             </section>

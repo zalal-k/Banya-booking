@@ -137,32 +137,39 @@ function bookingFromData(id: string, data: Record<string, unknown>): Booking {
 }
 
 export function watchOccupiedSlots(onChange: (map: BookingMap) => void) {
-  return onSnapshot(collection(firestore, "slots"), (snapshot) => {
-    const map: BookingMap = {};
-    snapshot.forEach((item) => {
-      const data = item.data();
-      const cabin = data.cabin as CabinId;
-      const time = data.time as TimeSlot;
-      const date = String(data.date ?? "");
-      map[slotKey(date, time, cabin)] = {
-        id: item.id,
-        date,
-        time,
-        cabin,
-        name: "",
-        phone: "",
-        people: 0,
-        adults: 0,
-        kids: 0,
-        totalSom: 0,
-        userId: String(data.userId ?? ""),
-        paymentMethod: "cash",
-        paymentStatus: "unpaid",
-        status: "active",
-      };
-    });
-    onChange(map);
-  });
+  return onSnapshot(
+    collection(firestore, "slots"),
+    (snapshot) => {
+      const map: BookingMap = {};
+      snapshot.forEach((item) => {
+        const data = item.data();
+        const cabin = data.cabin as CabinId;
+        const time = data.time as TimeSlot;
+        const date = String(data.date ?? "");
+        map[slotKey(date, time, cabin)] = {
+          id: item.id,
+          date,
+          time,
+          cabin,
+          name: "",
+          phone: "",
+          people: 0,
+          adults: 0,
+          kids: 0,
+          totalSom: 0,
+          userId: String(data.userId ?? ""),
+          paymentMethod: "cash",
+          paymentStatus: "unpaid",
+          status: "active",
+        };
+      });
+      onChange(map);
+    },
+    (error) => {
+      console.error("Could not load booked hours:", error);
+      onChange({});
+    },
+  );
 }
 
 export function watchAllBookings(onChange: (bookings: Booking[]) => void) {
