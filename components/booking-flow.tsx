@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { PageBack } from "@/components/page-back";
 import { useAuth } from "@/components/auth-provider";
@@ -27,12 +27,9 @@ import {
 export function BookingFlow() {
   const { t, dateLocale } = useLanguage();
   const { user, ready: authReady } = useAuth();
-  const todayKey = toDateKey(new Date());
-  const [month, setMonth] = useState(() => {
-    const now = new Date();
-    return new Date(now.getFullYear(), now.getMonth(), 1);
-  });
-  const [selectedDate, setSelectedDate] = useState(todayKey);
+  const [todayKey, setTodayKey] = useState<string | null>(null);
+  const [month, setMonth] = useState<Date | null>(null);
+  const [selectedDate, setSelectedDate] = useState("");
   const [selectedCabin, setSelectedCabin] = useState<CabinId | null>(null);
   const [selectedTime, setSelectedTime] = useState<TimeSlot | null>(null);
   const [bookings, setBookings] = useState<BookingMap>({});
@@ -44,6 +41,7 @@ export function BookingFlow() {
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("cash");
   const [busy, setBusy] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const [confirmed, setConfirmed] = useState<{
     date: string;
     time: TimeSlot;
@@ -53,6 +51,14 @@ export function BookingFlow() {
   } | null>(null);
 
   useEffect(() => {
+    const now = new Date();
+    const key = toDateKey(now);
+    setTodayKey(key);
+    setMonth(new Date(now.getFullYear(), now.getMonth(), 1));
+    setSelectedDate(key);
+  }, []);
+
+  useEffect(() => {
     return watchOccupiedSlots((map) => {
       setBookings(map);
       setSlotsReady(true);
@@ -60,16 +66,23 @@ export function BookingFlow() {
   }, []);
 
   useEffect(() => {
+    if (!selectedTime) return;
+    formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [selectedTime]);
+
+  useEffect(() => {
     if (!user) return;
     setName((value) => value || user.name);
     setPhone((value) => value || user.phone);
   }, [user]);
 
-  const days = useMemo(() => buildCalendarDays(month), [month]);
+  const days = useMemo(() => (month ? buildCalendarDays(month) : []), [month]);
   const adultCount = Math.max(0, Number(adults) || 0);
   const kidCount = Math.max(0, Number(kids) || 0);
   const totalSom = bookingTotalSom(adultCount, kidCount);
-  const selectedLabel = formatLongDate(parseDateKey(selectedDate), dateLocale);
+  const selectedLabel = selectedDate
+    ? formatLongDate(parseDateKey(selectedDate), dateLocale)
+    : "";
 
   function cabinName(cabin: CabinId) {
     return cabin === "cabin-1" ? t.cabin1 : t.cabin2;
@@ -145,7 +158,7 @@ export function BookingFlow() {
         </h1>
         <p className="mt-4 max-w-xl text-base leading-7 text-muted">{t.bookIntro}</p>
 
-        {!authReady ? (
+        {!authReady || !todayKey || !month ? (
           <p className="mt-10 text-muted">…</p>
         ) : (
           <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
@@ -243,27 +256,36 @@ export function BookingFlow() {
                   <p className="mt-6 text-sm text-muted">
                     {slotsReady ? t.pickSlot : t.loadingSlots}
                   </p>
-                  <div className="mt-3 grid max-h-[22rem] grid-cols-2 gap-2 overflow-y-auto sm:grid-cols-3">
+                  <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
                     {TIME_SLOTS.map((time) => {
                       const booked = Boolean(
                         bookings[slotKey(selectedDate, time, selectedCabin)],
                       );
                       const past = isSlotInPast(selectedDate, time);
-                      const unavailable = !slotsReady || booked || past;
+                      const unavailable = booked || past;
                       const active = selectedTime === time;
                       return (
                         <button
                           key={time}
                           type="button"
-                          disabled={unavailable}
                           onClick={() => {
+                            if (past) {
+                              setSelectedTime(null);
+                              setFormError(t.slotPast);
+                              return;
+                            }
+                            if (booked) {
+                              setSelectedTime(null);
+                              setFormError(t.bookTaken);
+                              return;
+                            }
                             setSelectedTime(time);
                             setConfirmed(null);
                             setFormError(null);
                           }}
-                          className={`rounded-2xl border px-3 py-3 text-sm font-medium transition ${
+                          className={`min-h-12 rounded-2xl border px-3 py-3 text-sm font-medium transition ${
                             unavailable
-                              ? "cursor-not-allowed border-transparent bg-[#3a342f] text-[#9a938c]"
+                              ? "border-transparent bg-[#3a342f] text-[#9a938c]"
                               : active
                                 ? "border-accent bg-accent text-foreground"
                                 : "border-emerald-800/40 bg-emerald-700/80 text-emerald-50 hover:bg-emerald-600"
@@ -298,8 +320,18 @@ export function BookingFlow() {
                 </div>
               ) : null}
 
+              {formError && !(selectedCabin && selectedTime) ? (
+                <p className="mt-4 text-sm text-accent" role="alert">
+                  {formError}
+                </p>
+              ) : null}
+
               {selectedCabin && selectedTime ? (
-                <form onSubmit={onConfirm} className="mt-8 space-y-4">
+                <form
+                  ref={formRef}
+                  onSubmit={onConfirm}
+                  className="mt-8 space-y-4 scroll-mt-28"
+                >
                   <p className="text-sm text-muted">
                     {t.session}: {cabinName(selectedCabin)}, {selectedLabel},{" "}
                     {selectedTime}–{endTime(selectedTime)}
