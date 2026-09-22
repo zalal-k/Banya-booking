@@ -149,6 +149,7 @@ type Copy = {
   adminClickBusy: string;
   slotBusy: string;
   slotFree: string;
+  slotPast: string;
   visitPassed: string;
   visitCancelled: string;
   visitUpcoming: string;
@@ -364,6 +365,7 @@ export const COPY: Record<Locale, Copy> = {
     adminClickBusy: "Бош эмес саатты басыңыз — ким брондогонун көрөсүз.",
     slotBusy: "Бош эмес",
     slotFree: "Бош",
+    slotPast: "Бул саат өттү. Башкасын тандаңыз.",
     visitPassed: "Өтүп кетти",
     visitCancelled: "Жокко чыгарылды",
     visitUpcoming: "Алдыда",
@@ -576,6 +578,7 @@ export const COPY: Record<Locale, Copy> = {
     adminClickBusy: "Нажмите занятый час, чтобы увидеть гостя.",
     slotBusy: "Занято",
     slotFree: "Свободно",
+    slotPast: "Это время уже прошло. Выберите другое.",
     visitPassed: "Прошло",
     visitCancelled: "Отменено",
     visitUpcoming: "Предстоит",
@@ -788,6 +791,7 @@ export const COPY: Record<Locale, Copy> = {
     adminClickBusy: "Tap a busy hour to see the guest.",
     slotBusy: "Busy",
     slotFree: "Free",
+    slotPast: "That hour has already passed. Pick another.",
     visitPassed: "Passed",
     visitCancelled: "Cancelled",
     visitUpcoming: "Upcoming",
